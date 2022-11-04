@@ -6,9 +6,10 @@ const Contact = () => {
   const [lnameRef, setLnameRef] = useState("");
   const [emailRef, setEmailRef] = useState("");
   const [textareaRef, setTextareaRef] = useState("");
+  const [checkState, setCheckState] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(fnameRef, lnameRef, emailRef, textareaRef);
+    console.log(fnameRef, lnameRef, emailRef, textareaRef, checkState);
   };
   return (
     <div id="contact-me">
@@ -77,12 +78,16 @@ const Contact = () => {
           </p>
         </div>
         <div className="agreement">
-          <input type="checkbox" id="checkbox" required />
+          <input
+            type="checkbox"
+            id="checkbox"
+            value={checkState}
+            onChange={(e) => setCheckState(e.target.value)}
+            required
+          />
           <p>You agree to providing your data to {name} who may contact you.</p>
         </div>
-        <button id="btn__submit" onClick={(e) => handleSubmit(e)}>
-          Send message
-        </button>
+        <button id="btn__submit" onClick={(e) => handleSubmit(e.target.value)}>Send message</button>
       </form>
     </div>
   );

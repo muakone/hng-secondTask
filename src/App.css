@@ -167,7 +167,18 @@ textarea:focus {
   font-size: 16px;
 }
 
-
+input[type=text]:focus:invalid,input[type=email]:focus:invalid,textarea:focus:invalid{
+  border: solid 1px rgba(248, 150, 135, 1);
+}
+input[type=text] + .error,input[type=email] + .error,textarea + .error{
+  display: none;
+}
+input[type=text]:focus:invalid + .error,input[type=email]:focus:invalid + .error,textarea:focus:invalid + .error{
+  display: inline;
+}
+input[type=text]:focus:valid,input[type=email]:focus:valid,textarea:focus:valid {
+  border: solid 1px rgba(81, 203, 238, 1);
+}
 
 
 /*Contact me ends here*/
@@ -193,7 +204,7 @@ textarea:focus {
 }
 @media (max-width: 600px) {
   #App {
-    width: 90%;
+    width: 95%;
   }
   #container {
     width: 95%;
