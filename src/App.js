@@ -1,13 +1,16 @@
 import './App.css';
-import Profile from "./component/Profile";
-import Links from "./component/Links";
 import Footer from "./component/Footer";
+import { Route, Routes } from "react-router-dom"
+import Home from './pages/Home';
+import Contact from './pages/Contact';
 
 function App() {
   return (
     <div id="App">
-      <Profile />
-      <Links />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>
       <Footer />
     </div>
   );

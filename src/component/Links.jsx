@@ -1,6 +1,7 @@
 import React from "react";
 import Github from "../images/github.svg";
 import Slack from "../images/slack.svg";
+import { Link } from "react-router-dom"
 
 const Links = () => {
   return (
@@ -46,6 +47,7 @@ const Links = () => {
         >
           Buy free design books from zuri
         </a>
+        <Link to="/contact" id="contact">Contact Me</Link>
       </div>
       <div id="icons">
         <img src={Slack} alt="slack-icon" />

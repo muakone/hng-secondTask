@@ -23,7 +23,7 @@
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 #profile p {
@@ -76,6 +76,101 @@
   height: 50px;
 }
 
+/*Contact page*/
+#contact-me {
+  width: 80%;
+  display: flex;
+  margin: 40px auto 40px 200px;
+  flex-direction: column;
+  justify-content: center;
+}
+#contact-me h2 {
+  font-weight: 600;
+  font-size: 36px;
+}
+ .contact-me__para {
+  font-weight: 400;
+  font-size: 20px;
+  margin: 20px 0 30px 0;
+}
+form {
+  display: grid;
+  gap: 30px;
+}
+label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #344054;
+}
+.name {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+.fname,
+.lname {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.email-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #d0d5dd;
+  outline: none;
+}
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  font-size: 16px;
+}
+textarea {
+  width: 80%;
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+}
+input:focus,
+textarea:focus {
+  border-color: #84caff;
+}
+.agreement {
+  display: flex;
+  align-items: center;
+}
+#checkbox {
+  border-radius: 3px;
+  border: 1px solid #d0d5dd;
+  margin-right: 10px;
+}
+.agreement p {
+  font-weight: 400;
+  font-size: 16px;
+}
+#btn__submit {
+  width: 80%;
+  text-align: center;
+  border-radius: 8px;
+  background: #1570ef;
+  padding: 15px 20px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+
+
+
+/*Contact me ends here*/
 #footer {
   display: flex;
   justify-content: space-between;
@@ -91,7 +186,11 @@
   font-weight: 400;
   font-size: 16px;
 }
-
+@media(max-width: 768px) {
+  #contact-me{
+    margin: 40px auto 40px 50px;
+  }
+}
 @media (max-width: 600px) {
   #App {
     width: 90%;
@@ -109,6 +208,20 @@
 
   #links a {
     font-size: 14px;
+  }
+  #contact-me{
+    margin: 40px auto 40px auto;
+  }
+  .name{
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+  .fname,.lname, .email-div, textarea{
+    width: 100%;
+  }
+  #btn__submit {
+    width: 100%;
   }
   #footer {
     flex-direction: column;
