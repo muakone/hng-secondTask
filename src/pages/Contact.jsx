@@ -10,17 +10,24 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(fnameRef, lnameRef, emailRef, textareaRef, checkState);
+    setFnameRef("")
+    setLnameRef("")
+    setEmailRef("")
+    setTextareaRef("")
+    setCheckState(false)
+    alert("you have succesfully registered")
   };
+  console.log(checkState)
   return (
     <div id="contact-me">
       <h2>Contact Me</h2>
       <p className="contact-me__para">
         Hi there, contact me to ask me about anything you have in mind.
       </p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="name">
           <div className="fname">
-            <label>First name</label>
+            <label htmlFor="fname">First name</label>
             <input
               type="text"
               name="fname"
@@ -35,7 +42,7 @@ const Contact = () => {
             </p>
           </div>
           <div className="lname">
-            <label>Last name</label>
+            <label htmlFor="lname">Last name</label>
             <input
               type="text"
               name="lname"
@@ -51,7 +58,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="email-div">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -65,7 +72,7 @@ const Contact = () => {
           </p>
         </div>
         <div className="textarea">
-          <label>Message</label>
+          <label htmlFor="message">Message</label>
           <textarea
             id="message"
             placeholder="Send me a message and i'll reply you as soon as possible... "
@@ -82,12 +89,12 @@ const Contact = () => {
             type="checkbox"
             id="checkbox"
             value={checkState}
-            onChange={(e) => setCheckState(e.target.value)}
+            onChange={(e) => setCheckState(e.target.checked)}
             required
           />
           <p>You agree to providing your data to {name} who may contact you.</p>
         </div>
-        <button id="btn__submit" onClick={(e) => handleSubmit(e.target.value)}>Send message</button>
+        <button id="btn__submit" type="submit">Send message</button>
       </form>
     </div>
   );
