@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 const Contact = () => {
   const name = "Muhiz Akanni";
-  const [fnameRef, setFnameRef] = useState("");
-  const [lnameRef, setLnameRef] = useState("");
-  const [emailRef, setEmailRef] = useState("");
-  const [textareaRef, setTextareaRef] = useState("");
-  const [checkState, setCheckState] = useState(false);
+  const fnameRef = useRef();
+  const lnameRef = useRef();
+  const emailRef = useRef();
+  const textareaRef = useRef();
+  const checkStateRef = useRef(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(fnameRef, lnameRef, emailRef, textareaRef, checkState);
-    setFnameRef("")
-    setLnameRef("")
-    setEmailRef("")
-    setTextareaRef("")
-    setCheckState(false)
-    alert("you have succesfully registered")
+    alert(`${fnameRef.current.value} your message has been sent`);
+    e.target.reset();
   };
-  console.log(checkState)
   return (
     <div id="contact-me">
       <h2>Contact Me</h2>
@@ -33,8 +27,7 @@ const Contact = () => {
               name="fname"
               id="first_name"
               placeholder="Enter your first name"
-              value={fnameRef}
-              onChange={(e) => setFnameRef(e.target.value)}
+              ref={fnameRef}
               required
             />
             <p className="error" id="error__fname">
@@ -48,8 +41,7 @@ const Contact = () => {
               name="lname"
               id="last_name"
               placeholder="Enter your last name"
-              value={lnameRef}
-              onChange={(e) => setLnameRef(e.target.value)}
+              ref={lnameRef}
               required
             />
             <p className="error" id="error__lname">
@@ -63,8 +55,7 @@ const Contact = () => {
             type="email"
             id="email"
             placeholder="yourname@email.com"
-            value={emailRef}
-            onChange={(e) => setEmailRef(e.target.value)}
+            ref={emailRef}
             required
           />
           <p className="error" id="error__email">
@@ -76,8 +67,7 @@ const Contact = () => {
           <textarea
             id="message"
             placeholder="Send me a message and i'll reply you as soon as possible... "
-            value={textareaRef}
-            onChange={(e) => setTextareaRef(e.target.value)}
+            ref={textareaRef}
             required
           />
           <p className="error" id="error__message">
@@ -85,16 +75,12 @@ const Contact = () => {
           </p>
         </div>
         <div className="agreement">
-          <input
-            type="checkbox"
-            id="checkbox"
-            value={checkState}
-            onChange={(e) => setCheckState(e.target.checked)}
-            required
-          />
+          <input type="checkbox" id="checkbox" ref={checkStateRef} required />
           <p>You agree to providing your data to {name} who may contact you.</p>
         </div>
-        <button id="btn__submit" type="submit">Send message</button>
+        <button id="btn__submit" type="submit">
+          Send message
+        </button>
       </form>
     </div>
   );

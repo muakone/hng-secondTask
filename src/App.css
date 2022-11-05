@@ -110,7 +110,7 @@ label {
 }
 .fname,
 .lname {
-  width: 45%;
+  width: 48%;
   display: flex;
   flex-direction: column;
 }
@@ -126,6 +126,7 @@ textarea {
   padding: 15px;
   border: 1px solid #d0d5dd;
   outline: none;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
 }
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
@@ -165,6 +166,10 @@ textarea:focus {
   border: none;
   color: white;
   font-size: 16px;
+}
+#btn__submit:hover{
+  opacity: .5;
+  transition: 1s ease-out;
 }
 
 input[type=text]:focus:invalid,input[type=email]:focus:invalid,textarea:focus:invalid{
